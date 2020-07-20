@@ -1,2 +1,2 @@
 # TIL
-a collection of TIL
+A collection of my "Today I learned" notes.
