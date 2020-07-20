@@ -1,4 +1,4 @@
-# Generate gpg key and add to Github for verify commits.md
+# Generate gpg key and add to Github for verify commits
 
 ## Generating gpg key
   * Download and install GPG Suite from https://gpgtools.org/
