@@ -23,3 +23,7 @@
 `ssh-add -K ~/.ssh/id_rsa`
 
 \*id_rsa is private key filename
+
+## Testing ssh connection with github server
+
+`ssh -T git@github.com`
