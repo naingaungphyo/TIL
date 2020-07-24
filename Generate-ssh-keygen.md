@@ -7,3 +7,19 @@
 - `t` type
 - `b` bit
 - `C` comment, label
+
+## Checking ssh-agent running
+
+- Mac and Linux
+
+  `eval "$(ssh-agent -s)"`
+
+- Windows
+
+  `eval $(ssh-agent -s)`
+
+## Adding ssh key
+
+`ssh-add -K ~/.ssh/id_rsa`
+
+\*id_rsa is private key filename
