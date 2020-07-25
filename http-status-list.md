@@ -1,3 +1,3 @@
 # Http Status List
 
-`https://httpstatuses.com/400`
+`https://httpstatuses.com`
