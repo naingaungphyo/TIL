@@ -1,8 +1,8 @@
-# Check installed node version includes npx
+# Check whether installed node version includes npx or not
 
 `which npx`
 
-## if it is not installed, install it
+## if it is not included, install it
 
     `npm install -g npx`
 
