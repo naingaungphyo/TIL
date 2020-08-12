@@ -20,9 +20,9 @@
 
     `npm v your-package`
 
-## install it inside a sandbox
+## install it using dist tags(for example @next as below) inside a sandbox
 
-    `npmx your-package@next sandbox`
+    `npx your-package@next sandbox`
 
 ## run the sandbox version inside its directory.
 
