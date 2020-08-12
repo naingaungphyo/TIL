@@ -20,7 +20,7 @@
 
     `npm v your-package`
 
-## install it using dist tags(for example @next as below) inside a sandbox
+## installing using dist tags(for example @next as below) inside a sandbox
 
     `npx your-package@next sandbox`
 
