@@ -1,8 +1,8 @@
-# Check installed node version includes npx
+# Check whether installed node version includes npx or not
 
 `which npx`
 
-## if it is not installed, install it
+## if it is not included, install it
 
     `npm install -g npx`
 
@@ -20,9 +20,9 @@
 
     `npm v your-package`
 
-## install it inside a sandbox
+## installing using dist tags(for example @next as below) inside a sandbox
 
-    `npmx your-package@next sandbox`
+    `npx your-package@next sandbox`
 
 ## run the sandbox version inside its directory.
 
