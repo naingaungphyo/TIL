@@ -160,7 +160,6 @@ This will remove:
 
 - After starting a container with overwrite command as `docker start ContainerID OVERWRITE-COMMAND`, we can't start it again using another command as it will lead showing the below error.  
   `you cannot start and attach multiple containers at once`
--
 
 ## 6. Creating Docker Image
 
