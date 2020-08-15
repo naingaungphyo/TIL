@@ -1,3 +1,5 @@
+## Installation
+
 ### For Mac users
 
 Download and install Docker for Mac.  
@@ -33,3 +35,15 @@ Debian
 
 Unlike the Mac and Windows Docker Desktop versions, we must manually install Docker Compose.  
  `https://docs.docker.com/compose/install/#install-compose`
+
+## Docker for Windows/Mac
+
+Docker for Windows/Mac consists of Docker Client and Docker Server(Docker Daemon).
+
+#### Docker Client
+
+`Docker Client is a tool that we are going to issue commands to.`
+
+#### Docker Server(Docker Daemon)
+
+`Docker Daemon is a tool that is responsible for creating images,, running containers, etc.`
