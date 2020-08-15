@@ -46,4 +46,12 @@ Docker for Windows/Mac consists of Docker Client and Docker Server(Docker Daemon
 
 #### Docker Server(Docker Daemon)
 
-`Docker Daemon is a tool that is responsible for creating images,, running containers, etc.`
+`Docker Daemon is a tool that is responsible for creating images, running containers, etc.`
+
+#### Getting started
+
+Check docker version.  
+`docker version`
+
+Run hello-world.  
+`docker run hellow-world`
