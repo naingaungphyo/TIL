@@ -203,3 +203,25 @@ Dockerfile format is `INSTRUCTION ARGUMENT` format:
 
 Inside the directory where `Dockerfile` exists, run the below command to build an image.  
 `docker build .`
+
+- Important things to note here is that, docker does cache the image creating process according to the command order in Dockerfile and reuses the cache whenever it is possible. So, changing the order of command in Dockerfile will lead the cache not being reusable. It is recommended to add new command to the very last line of Dockerfile whenever it is possible, so that docker can reuse the cache when building a new image.
+
+#### Building an Image with tag
+
+Running a docker image using containerID everytime is a pain. We can build an image with tag name and run that newly created image using that tag name.
+
+`docker build -t abc/redis:latest .`
+
+- `abc/redis:latest` is the tag name and the convention for it is as below.
+
+  `abc` is Your Docker ID  
+  `redis` is Your repo/project name  
+  `latest` is version
+
+#### Taking snapshot image of a running container
+
+`docker commit -c 'CMD ["redis-server"]' RunningContainerID`
+
+- `-c` is used to set `'CMD ["redis-server"]'` as default command in that image.
+- after running above command, a newly created image ID will be generated as `sha256: XXXXXXXXXXXX`.
+- Run the container by using a newly created image ID with the following command `docker run XXXXX` where we don't need to type full image ID. Docker does know even we type part of image ID if it is unique.
