@@ -55,3 +55,25 @@ Check docker version.
 
 Run hello-world.  
 `docker run hellow-world`
+
+## Behind the scenes
+
+### Namespacing
+
+Isolating resources per process(or group of processes).
+
+Process, Users, Hard drive, Network, Hostnames, Inter Process Communication etc
+
+### Control Groups (cgroups)
+
+Limit amount of resources used per process.
+
+Memory, CPU Usage, HD I/0, Network Bandwidth
+
+### Docker Image
+
+It contains FS Snapshot, Startup Command
+
+### Docker Container
+
+Running process -> Kernel -> RAM, Network, CPU, Data from FS Snapshot of Image
