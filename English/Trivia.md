@@ -1,14 +1,14 @@
 ### Oxford comma
 
-with Oxford comma example:
+with Oxford comma example:  
 `a b, and c`
 
-without Oxford comma example:
+without Oxford comma example:  
 `a, b and c`
 
 ### Gerund
 
-which word is a gerund? Walked, walks or walking
+which word is a gerund? Walked, walks or walking  
 `walking`
 
 ### What is a bibliophile?
