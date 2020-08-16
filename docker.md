@@ -295,6 +295,16 @@ COPY ./ ./
 CMD ["npm", "start"]
 ```
 
+#### Ignoring specific files, folders when building image
+
+To ignore files, we can a file named `.dockerignore` like `.gitignore` and describe the folders and files that we want to ignore inside it.
+
+example content of `.dockerignore` file
+
+```
+node_module
+```
+
 #### Starting up a container with port mapping
 
 `docker run -p 8080:8080 image-id`
