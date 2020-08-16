@@ -311,3 +311,35 @@ node_module
 
 - `-p 8080:8080` is port mapping. the first `8080` is from port of source machine and the second `8080` is the to port inside the container
 - After running the above command, we should be able to access the server inside our container from `localhost:8080`. One thing to note here for Docker Toolbox users is that, we can't use `localhost` there, so we would access using `192.168.99.100:8080`.
+
+#### [Delete unnecessary containers and images](https://docs.docker.com/docker-for-mac/space/#delete-unnecessary-containers-and-images)
+
+detailed space usage information by running:  
+`docker system df -v`
+
+to list images, run:  
+`docker image ls`
+
+to list containers, run:  
+`docker container ls -a`
+
+If there are lots of redundant objects, run the command:  
+`docker system prune`
+
+This command removes all stopped containers, unused networks, dangling images, and build cache.
+
+It might take a few minutes to reclaim space on the host depending on the format of the disk image file:
+
+If the file is named Docker.raw: space on the host should be reclaimed within a few seconds.
+If the file is named Docker.qcow2: space will be freed by a background process after a few minutes.
+
+- Note that many tools report the maximum file size, not the actual file size. To query the actual size of the file on the host from a terminal, run:
+
+```
+$ cd ~/Library/Containers/com.docker.docker/Data
+$ cd vms/0/data
+$ ls -klsh Docker.raw
+2333548 -rw-r--r--@ 1 username  staff    64G Dec 13 17:42 Docker.raw
+```
+
+In this example, the actual size of the disk is 2333548 KB, whereas the maximum size of the disk is 64 GB.
