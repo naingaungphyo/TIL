@@ -215,7 +215,7 @@ Running a docker image using containerID everytime is a pain. We can build an im
 
   `abc` is Your Docker ID  
   `redis` is Your repo/project name  
-  `latest` is version
+  `:latest` is tag version, it is optional and it is the default value if we omit it
 
 #### Taking snapshot image of a running container
 
@@ -224,3 +224,80 @@ Running a docker image using containerID everytime is a pain. We can build an im
 - `-c` is used to set `'CMD ["redis-server"]'` as default command in that image.
 - after running above command, a newly created image ID will be generated as `sha256: XXXXXXXXXXXX`.
 - Run the container by using a newly created image ID with the following command `docker run XXXXX` where we don't need to type full image ID. Docker does know even we type part of image ID if it is unique.
+
+#### Building an image using extra local files
+
+To copy extra local file to the container image, the instruction `COPY` is used.
+
+```
+# Specify a base image
+FROM node:alpine
+
+# Install some dependencies
+RUN npm install
+
+# Copy the local files
+COPY ./ ./
+
+# the first `./` is `Path to local folder`
+# *relative to build context of `docker build BUILDCONTEXT` command*
+
+# the second `./` is `Place to copy stuff to
+# inside *the container*
+
+# Default command
+CMD ["npm", "start"]
+```
+
+Copying everything to root directory of the container is not ideal. We can set up a work directory when building an image using the instruction `WORKDIR` like below.
+
+```
+# Specify a base image
+FROM node:alpine
+
+# Any following command will be executed
+# relative to this path in the container
+WORKDIR /usr/app
+
+# And copy instruction will copy to work directory
+# the second `./` is our work directory which is `/usr/app` now!
+COPY ./ ./
+
+# Install some dependencies
+RUN npm install
+
+# Default command
+CMD ["npm", "start"]
+```
+
+#### Minizing cache busting and rebuilds for image building
+
+With the above example Dockerfile instructions, if we make a change to the source file which is located in root directory of our project, the following instruction `RUN npm install` will still be executed again because we can't use our build cache.  
+To minimize Cache Busting and Rebuilds, we can make a change to how we copy our source files and package.json to the container.
+
+```
+FROM node:alpine
+
+WORKDIR /usr/app
+
+# copy only package.json for the following `npm install` command
+COPY ./package.json ./
+
+# Install some dependencies
+RUN npm install
+
+# After `npm install`, we can copy all files in our root project directory
+# so that we don't need to rerun `npm install` everytime we change
+# our source files
+COPY ./ ./
+
+# Default command
+CMD ["npm", "start"]
+```
+
+#### Starting up a container with port mapping
+
+`docker run -p 8080:8080 image-id`
+
+- `-p 8080:8080` is port mapping. the first `8080` is from port of source machine and the second `8080` is the to port inside the container
+- After running the above command, we should be able to access the server inside our container from `localhost:8080`. One thing to note here for Docker Toolbox users is that, we can't use `localhost` there, so we would access using `192.168.99.100:8080`.
