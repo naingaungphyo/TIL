@@ -320,6 +320,9 @@ detailed space usage information by running:
 to list images, run:  
 `docker image ls`
 
+to delete specific image, run:
+`docker image rm image-name`
+
 to list containers, run:  
 `docker container ls -a`
 

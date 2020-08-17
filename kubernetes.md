@@ -262,3 +262,47 @@ spec:
 
 - Ingress or Ingress Controller  
   A pod with a set of routing rules to distribute traffic to other services
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml
+```
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/cloud-generic.yaml
+```
+
+ingress-nginx config example:
+
+```
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # add to use regex for dynamic path
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    # as we can host many app inside a k8s cluster, we need to clarify the host for our app
+    - host: posts.com
+      http:
+        paths:
+          - path: /posts/create
+            backend:
+              serviceName: posts-clusterip-srv
+              servicePort: 4000
+          - path: /posts
+            backend:
+              serviceName: query-srv
+              servicePort: 4002
+          # nginx doesnt support wild card colon(:), so need to use regex
+          - path: /posts/?(.*)/comments
+              serviceName: comments-srv
+              servicePort: 4001
+          # if we are using router in react app, it will be `/?(.*)` instead of `/` here.
+          # last not least, wild card route should be at the last order
+          - path: /
+              serviceName: client-srv
+              servicePort: 3000
+```
