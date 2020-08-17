@@ -75,3 +75,6 @@ artifacts:
         - src: '*.js'
           dest: .
 ```
+
+To run skaffold in dev mode, use:  
+ `skaffold dev`
