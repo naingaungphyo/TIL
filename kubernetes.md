@@ -306,3 +306,6 @@ spec:
               serviceName: client-srv
               servicePort: 3000
 ```
+
+To check whether ingress controller is running, use:  
+`kubectl get services -n ingress-nginx`
