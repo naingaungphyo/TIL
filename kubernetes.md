@@ -309,3 +309,7 @@ spec:
 
 To check whether ingress controller is running, use:  
 `kubectl get services -n ingress-nginx`
+
+### Chrome certificate validate error
+
+Typing `thisisunsafe` while opening chrome tab will lead to open the page and skip the certificate validation!
