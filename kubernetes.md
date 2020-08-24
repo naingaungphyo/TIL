@@ -322,3 +322,6 @@ Typing `thisisunsafe` while opening chrome tab will lead to open the page and sk
 - `yourdesiredsecretname` - any name your want as your secret, use for logging
 - `yoursecretkey` - key of a key value pair. we can assign many different properties or many different key value pairs into a secret
 - `yoursecretvalue` - value of a key value pair.
+
+To list secrets inside our cluster, run:  
+`kubectl get secrets`
