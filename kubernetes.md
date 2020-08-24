@@ -313,3 +313,12 @@ To check whether ingress controller is running, use:
 ### Chrome certificate validate error
 
 Typing `thisisunsafe` while opening chrome tab will lead to open the page and skip the certificate validation!
+
+### Creating a Secret
+
+`kubectl create secret generic yourdesiredsecretname --from-literal=yoursecretkey=yoursecretvalue`
+
+- `generic` - there are different kind of secrets in k8s. `generic` is used for all purpose kind of secret piece of information
+- `yourdesiredsecretname` - any name your want as your secret, use for logging
+- `yoursecretkey` - key of a key value pair. we can assign many different properties or many different key value pairs into a secret
+- `yoursecretvalue` - value of a key value pair.
