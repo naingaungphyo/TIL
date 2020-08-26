@@ -310,6 +310,8 @@ spec:
 To check whether ingress controller is running, use:  
 `kubectl get services -n ingress-nginx`
 
+- `-n ingress-nginx` means namespace `ingress-nginx`, as ingress is running inside `ingress-nginx` namespace
+
 ### Chrome certificate validate error
 
 Typing `thisisunsafe` while opening chrome tab will lead to open the page and skip the certificate validation!
@@ -325,3 +327,11 @@ Typing `thisisunsafe` while opening chrome tab will lead to open the page and sk
 
 To list secrets inside our cluster, run:  
 `kubectl get secrets`
+
+### Cross-Namespace Communication
+
+`http://NAMEOFSERVICE.NAMEOFNAMESPACE.svc.cluster.local`
+
+Example of communication from default Namespace to `ingress-nginx` namespace
+
+`http://ingress-nginx.ingress-nginx.svc.cluster.local`
