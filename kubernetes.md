@@ -332,6 +332,20 @@ To list secrets inside our cluster, run:
 
 `http://NAMEOFSERVICE.NAMEOFNAMESPACE.svc.cluster.local`
 
-Example of communication from default Namespace to `ingress-nginx` namespace
+- Example of communication from default Namespace to `ingress-nginx` namespace  
+  `http://ingress-nginx.ingress-nginx.svc.cluster.local`
 
-`http://ingress-nginx.ingress-nginx.svc.cluster.local`
+Also, we can use `External Name Service` in k8s to get rid of remembering the above long sentence.
+
+- List Namespaces  
+  `kubectl get namespace`
+
+- List services inside a namespace  
+  `kubectl get namespace -n NAMEOFNAMESPACE`
+
+### k8s port-forwarding (instead of creating NodePort)
+
+`kubectl port-forward PODNAME 4222:4222`
+
+- first `4222` is of local machine.
+- second `4222` is of the pod.
