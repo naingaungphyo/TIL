@@ -29,6 +29,8 @@ subscription.on('message', (msg: Message) => {
 })
 ```
 
+- Channel Name is case sensitive!
+
 ### Subscription Options
 
 Examples:
@@ -39,7 +41,7 @@ const options = stan.subscriptionOptions()
   .setDeliverAllAvailable()
   .setManualAckMode()
   .setMaxInFlight()
-  .setDurableName()
+  .setDurableName() // use to memorize processed Events inside NATS server
 
 // and pass it as 3rd argument
 const subscription = stan.subscrib('ChannelName', 'QueueGroupName', options)
