@@ -129,3 +129,9 @@ spec:
       port: 8222
       targetPort: 8222
 ```
+
+### TypeScript Alternatives with Croos Language Support for event types sharing
+
+- JSON Schema
+- Protobuf
+- Apache Avro
