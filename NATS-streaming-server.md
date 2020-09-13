@@ -12,6 +12,8 @@ const stan = nats.connect('ClusterID', 'ClientID', {
 })
 ```
 
+- ClusterID is defined in Deployment file with `-cid` flag
+
 ### Queue Group
 
 We can have `Queue Groups` associated to a channel to limit that `only one of listener services` get the desired event.
